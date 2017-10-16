@@ -1,0 +1,22 @@
+{% set title = 'Home' %}
+{% extends '_layout.nunjucks' %}
+
+{% block css %}
+    <link href="/styles/index.css" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="main">
+<h1 >
+    Welcome, please login below
+</h1>
+
+<div class="misc-data">
+    <input id="btnSignIn" type="button" value="Sign In">
+</div>
+
+</div>
+{% endblock %}
+{% block js %}
+    <script src="/scripts/index.js" type="text/javascript"></script>
+{% endblock %}
