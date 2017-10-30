@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="main">
+<div style="height:50px;"></div>
+<div class="main clear">
 <h1 >
     Welcome, please login below
 </h1>

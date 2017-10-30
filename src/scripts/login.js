@@ -63,7 +63,7 @@
            $this.model.initialize();
         }
         $(doc).ready(function () {
-            $('#btnSignIn').click(function(){
+            $('#btnSignIn, #btnSignInTop').click(function(){
                 $('#pnlLogin').css('display','block');
                 $('#pnlPublic').css('display','none');
                 $('#pnlSecure').css('display','none');
@@ -81,6 +81,7 @@
                            $('#pnlLogin').css('display','none');
                            $('#pnlPublic').css('display','none');
                            $('#pnlSecure').css('display','block');
+                           $('#btnLoginTop').css('display','none');
                        //console.log('login result',result);
                        }
                });

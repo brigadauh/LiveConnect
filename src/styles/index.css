@@ -1,3 +1,4 @@
+@import "common.css";
 body {
 }
 h1 {
@@ -5,7 +6,6 @@ h1 {
     text-align: center;
 }
 .main {
-    max-width: 275px;
     margin: 0 auto;
 }
 .temp {
@@ -29,6 +29,7 @@ h1 {
     vertical-align: top;
 }
 .misc-data {
-    text-align: left;
+    text-align: center;
     margin-left: 2em;
 }
+.

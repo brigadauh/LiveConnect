@@ -2,7 +2,7 @@ var gulp = require( 'gulp' ) ;
 var nunjucksRender = require( 'gulp-nunjucks-render' ) ;
 var browserSync   = require('browser-sync').create();
 var httpProxy     = require('http-proxy');
-var reload = browserSync.reload;
+
 
 var PATH = {
     src: {
@@ -56,19 +56,20 @@ gulp.task('serve', ['html', 'styles', 'scripts','images','misc'], function() {
       return next();
     }
   });
-  gulp.watch(PATH.src.baseDir+"/*.html").on('change', reload);
+  gulp.watch(PATH.src.baseDir+"/*.html").on('change', browserSync.reload);
+  gulp.watch(PATH.src.baseDir+"/*.nunjucks").on('change', browserSync.reload);
   gulp.watch(PATH.src.SCRIPTS+"/*.js",['scripts']);
   gulp.watch(PATH.src.SCC+"/*.css",['styles']);
 });
 gulp.task('styles', function() {
     return gulp.src(PATH.src.STYLES+"/*.css")
         .pipe(gulp.dest(PATH.dst.STYLES))
-        .pipe(reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('scripts', function() {
     return gulp.src(PATH.src.SCRIPTS+"/*.js")
         .pipe(gulp.dest(PATH.dst.SCRIPTS))
-        .pipe(reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('images',function() {
     return gulp.src(PATH.src.IMAGES+"/*.*")
@@ -77,7 +78,8 @@ gulp.task('images',function() {
 gulp.task( 'html', function() {
     return gulp.src( [PATH.src.baseDir + '/**.+(html|nunjucks)' ] )
     .pipe( nunjucksRender({path: [TEMPL]}) )
-    .pipe( gulp.dest( PATH.dst.baseDir ) ) ;
+    .pipe( gulp.dest( PATH.dst.baseDir ) )
+    .pipe(browserSync.reload({stream: true}));
 } ) ;
 gulp.task('misc', function(){
     return gulp.src([PATH.src.baseDir+'/favicon.ico'])

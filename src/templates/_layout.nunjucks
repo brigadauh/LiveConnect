@@ -23,10 +23,13 @@
     </div>
     <div id="pnlSecure"  style="display:none;">
         Secure content
-        <input id="btnLogOut" type="button" class="btn btn-primary" value="Logout">
+        <span id="btnLogOut" class="link btnLogoutTop">Logout</span>
     </div>
 
     <div id="pnlPublic">
+        <div>
+            <span id="btnSignInTop" class="link btnLoginTop">Login</span>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
